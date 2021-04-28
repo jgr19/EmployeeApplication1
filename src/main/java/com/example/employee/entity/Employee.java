@@ -31,10 +31,8 @@ public class Employee {
 	@Column(name="Address")
 	private String address;
 	
-	@Column(name="Courses")
-	@OneToMany(mappedBy = "courseName" ,cascade = {
-	        CascadeType.ALL
-	    })
+	@OneToMany(mappedBy = "employee" ,cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+		      CascadeType.REFRESH })
 	private List<Courses> courses;
 	
 	public Employee() {
@@ -47,8 +45,8 @@ public class Employee {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		phoneNumber = phoneNumber;
-		address = address;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
 		this.courses = courses;
 	}
 	
@@ -74,13 +72,13 @@ public class Employee {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
-		phoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
-		address = address;
+		this.address = address;
 	}
 	public List<Courses> getCourses() {
 		return courses;

@@ -1,4 +1,4 @@
-package com.example.employee.model;
+package com.example.employee.dto;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import com.example.employee.entity.Courses;
 
 public class EmployeeDto {
 
+	private Integer id;
 	private String firstName;
 	
 	private String lastName;
@@ -17,7 +18,8 @@ public class EmployeeDto {
 	
 	private List<CoursesDto> courses;
 	
-	public EmployeeDto() {
+	public EmployeeDto()
+	{
 		
 	}
 	
@@ -26,8 +28,8 @@ public class EmployeeDto {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		phoneNumber = phoneNumber;
-		address = address;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
 		this.courses = courses;
 	}
 	
@@ -48,19 +50,27 @@ public class EmployeeDto {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
-		phoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
-		address = address;
+		this.address = address;
 	}
 	public List<CoursesDto> getCourses() {
 		return courses;
 	}
 	public void setCourses(List<CoursesDto> courses) {
 		this.courses = courses;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }
