@@ -1,12 +1,16 @@
 package com.example.employee.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,16 +28,20 @@ public class Courses {
 	private String subject;
 	
 	@Column(name="StartDate")
-	private Date startDate;
+	private LocalDate startDate;
 	
 	@Column(name="EndDate")
-	private Date endDate;
+	private LocalDate endDate;
 	
-	public Courses() {
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employeeId")
+    private Employee employee;
+	
+    public Courses() {
 		
 	}
-	
-	public Courses(Integer couseId, String courseName, String subject, Date startDate, Date endDate) {
+
+	public Courses(Integer couseId, String courseName, String subject, LocalDate startDate, LocalDate endDate) {
 		super();
 		this.couseId = couseId;
 		this.courseName = courseName;
@@ -61,19 +69,27 @@ public class Courses {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 	
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 	
 	
 
