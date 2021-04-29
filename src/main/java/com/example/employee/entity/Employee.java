@@ -31,8 +31,7 @@ public class Employee {
 	@Column(name="Address")
 	private String address;
 	
-	@OneToMany(mappedBy = "employee" ,cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
-		      CascadeType.REFRESH })
+	@OneToMany(mappedBy = "employee",cascade = { CascadeType.ALL})
 	private List<Courses> courses;
 	
 	public Employee() {
@@ -85,8 +84,6 @@ public class Employee {
 	}
 	public void setCourses(List<Courses> courses) {
 		this.courses = courses;
-	}
-	
-	
+	}	
 	
 }
