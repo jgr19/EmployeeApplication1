@@ -11,9 +11,6 @@ import com.example.employee.entity.Courses;
 @Repository
 public interface CourseRepository extends JpaRepository<Courses,Integer>{
 
-	
-	@Query(value="SELECT c FROM Courses c where c.employee.id=?1")
-	List<Courses> FindByEmployeeId(Integer empId);
 
 
 	
