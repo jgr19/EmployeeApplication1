@@ -7,7 +7,7 @@ import com.example.employee.entity.Courses;
 
 public class EmployeeDto {
 
-	private Integer id;
+	private Integer employeeId;
 	private String firstName;
 	
 	private String lastName;
@@ -65,12 +65,12 @@ public class EmployeeDto {
 		this.courses = courses;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getEmployeeId() {
+		return employeeId;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.employeeId = id;
 	}
 	
 }

@@ -40,7 +40,7 @@ public class EmployeeController {
 		return employeeService.addEmployee(emp);				
 	}
 	
-	@PutMapping("update")
+	@PutMapping("/update")
 	public Response updateEmployee(@RequestBody EmployeeDto emp)
 	{
 		return employeeService.updateEmployee(emp);		

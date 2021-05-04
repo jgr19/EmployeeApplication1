@@ -106,7 +106,7 @@ public class EmployeeService {
 	public Response updateEmployee(EmployeeDto emp)
 	{
 		
-		Employee employee=employeeRepository.getOne(emp.getId());
+		Employee employee=employeeRepository.getOne(emp.getEmployeeId());
 		if(emp.getFirstName()!="" && emp.getFirstName()!=null)
 			employee.setFirstName(emp.getFirstName());
 		if(emp.getLastName()!="" && emp.getLastName()!=null)
@@ -116,6 +116,6 @@ public class EmployeeService {
 		if(emp.getPhoneNumber()!="" && emp.getPhoneNumber()!=null)
 			employee.setPhoneNumber(emp.getPhoneNumber());	
 		employeeRepository.save(employee);
-		return  new Response(emp.getId());
+		return  new Response(emp.getEmployeeId());
 	}
 }

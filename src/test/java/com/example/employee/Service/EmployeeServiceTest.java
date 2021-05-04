@@ -80,7 +80,7 @@ public class EmployeeServiceTest {
 		empDto.setId(emp.getEmployeeId());
 		empDto.setLastName("Raj");
 		Response response=employeeService.updateEmployee(empDto);
-		assertEquals(empDto.getId(), response.getId());
+		assertEquals(empDto.getEmployeeId(), response.getId());
 	}
 	
 	
